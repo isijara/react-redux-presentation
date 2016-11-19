@@ -1,0 +1,40 @@
+.no-frame {
+  border:none !important;
+  box-shadow:none !important;
+}
+
+.hero {
+  color: #61dafb !important;
+  font-weight: 400 !important;
+}
+
+.redux {
+  color: #70347f !important;
+  font-weight: 400 !important;
+}
+
+
+.em {
+	color:#00C0F7!important;
+}
+
+.em3 {
+  color:#6AB825!important
+}
+
+.em4 {
+  color:#ED9D13!important
+}
+
+.em2 {
+  color:#ED9D13!important
+}
+
+.em5 {
+  color:maroon!important;
+}
+
+.justify {
+    text-align:justify;
+    text-justify:inter-word;
+}

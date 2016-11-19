@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>React/Redux Introduction </title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<img width="40%" height="40%" class="no-frame" data-src="img/React.js_logo.svg.png" alt="ReactJS">
+					<p >
+						<strong class="hero"> React + Redux Introduction </strong>
+					</p>
+					<p>@risijara</p>
+					<p>Team Darwin</p>
+
+				</section>
+
+				<section>
+					<img width="10%" height="10%" class="no-frame" data-src="img/React.js_logo.svg.png" alt="ReactJS">
+					<p> <strong>What is React?</strong></p>
+
+					<p>
+						React is a library for building composable user interfaces.
+						It encourages the creation of reusable UI components which present
+						data that changes over time.
+					</p>
+
+					<p class="fragment hero">
+						Built by Instagram & Facebook
+					</p>
+
+				</section>
+
+				<section>
+					<img width="10%" height="10%" class="no-frame" data-src="img/React.js_logo.svg.png" alt="ReactJS">
+					<p> <strong>React is not a MVC framework</strong></p>
+
+					<p>
+						React is just the <span class="em2">V</span> in MVC
+					</p>
+
+
+				</section>
+
+
+				<section>
+					<img width="10%" height="10%" class="no-frame" data-src="img/React.js_logo.svg.png" alt="ReactJS">
+					<p class="hero"> <strong>React is:</strong></p>
+
+						<p class="fragment"><u>Declarative</u></p>
+						<p class="fragment"><u>Component-Based</u></p>
+						<p class="fragment"><u>Fast</u></p>
+
+				</section>
+
+
+				<section>
+
+					<p class="em">
+						<strong>Declarative</strong>
+					</p>
+
+					<pre><code class="hljs" data-trim >
+Imperative way:
+==
+Go to school
+Get into classes
+Do homework
+Do tests
+...
+Apply a degree test
+
+
+Declarative way:
+==
+Get a software engineering degree
+
+					</code></pre>
+
+				</section>
+
+				<section>
+					<p class="em">
+						<strong>Declarative</strong>
+					</p>
+					<pre><code class="hljs" data-trim >
+let imperativeWay = () => {
+  if (user.likes()) {
+    if (!hasBlue()) {
+      removeGrey();
+      addBlue();
+    }
+  } else {
+    if (hasBlue()) {
+      removeBlue();
+      addGrey();
+    }
+  }
+}
+
+let declarativeWay = () => {
+  if (this.state.liked) {
+    return <blueLike> ;
+  } else{
+    return <greyLike> ;
+  }
+}
+
+					</code></pre>
+
+				</section>
+
+
+				<section>
+					<p class="hero">Component Based</p>
+					<img src="img/component.png" alt="">
+				</section>
+
+
+				<section>
+					<p class="hero">Component Based</p>
+					<img width="55%" height="55%" src="img/example.png" alt="">
+				</section>
+
+				<section>
+					<p class="hero">Fast</p>
+					<p class="justify">
+						React is so fast because it never talks to the DOM directly. React maintains a fast in-memory representation of the DOM.
+
+					</p>
+					<p class="justify">
+						render() methods return a description of the DOM, and React can diff this description with the in-memory representation
+						to compute the fastest way to update the browser.
+					</p>
+
+
+				</section>
+
+				<section>
+					<p class="hero">Fast</p>
+						Whenever you call setState on a component, React will mark it as dirty.
+						<br>
+
+						<img width="55%" height="55%" src="img/dirty.png" alt="">
+				</section>
+
+				<section>
+					<p class="hero">Fast</p>
+					At the end of the event loop, React looks at all the dirty components
+					and re-renders them.
+					<br>
+					<img width="55%" height="55%" src="img/rerender.png" alt="">
+				</section>
+
+				<section>
+					<p class="hero">Fast</p>
+					React works with a novel diff algorithm with complexity O(n)
+					<br>
+					<img width="55%" height="55%" src="img/complexity.png" alt="">
+				</section>
+
+				<section>
+					<p class="hero">React Components</p>
+					Components let you split the UI into independent, reusable pieces,
+					and think about each piece in isolation.
+
+					<pre><code class="hljs" data-trim >
+class Greeting extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+
+					</code></pre>
+
+
+				</section>
+
+				<section>
+					<p class="hero">
+						The Component Lifecycle
+					</p>
+
+					<p>Each component has several "lifecycle methods" that you can override to run code at particular times in the process.</p>
+
+					<br>
+					<p>
+						<span class="em2">Mounting:</span>
+						Methods are called when an instance of a component is being created and inserted into the DOM.
+					</p>
+
+
+				</section>
+
+
+				<section>
+					<p class="hero">
+						The Component Lifecycle
+					</p>
+
+					<p>
+						<span class="em2">Updating:</span>
+						Methods are called when a component is being re-rendered.
+					</p>
+
+					<p>
+						<span class="em2">Unmounting:</span>
+						 Methods are called when a component is being removed from the DOM.
+					</p>
+
+					<br>
+
+					<a href="https://facebook.github.io/react/docs/react-component.html">Facebook Reference</a>
+				</section>
+
+
+				<section>
+					If our components are independent pieces of UI how can they communicate  with each other?
+				</section>
+
+				<section>
+					<h1 class="hero">Redux</h1>
+				</section>
+
+				<section>
+					<p>
+						<span class="hero">Redux</span> is a predictable <span class="hero">state container</span> for JavaScript apps.
+					</p>
+
+					<p>
+						It helps you write applications that behave consistently, run in
+						different environments (client, server, and native), and are easy to test.
+					</p>
+				</section>
+
+				<section>
+					<img src="img/redux-principles.png" alt="Redux Principles">
+				</section>
+
+				<section>
+					<img src="img/redux-org.svg" alt="">
+				</section>
+
+				<section>
+					<p class="hero">React + Redux Unidirectional Data Flow</p>
+					<img src="img/redux-architecture.png" alt="Redux architecture">
+				</section>
+
+
+				<section>
+
+					<p class="hero">Immutability = Clarity & Performance</p>
+					<img width="50%" height="50%" src="img/immutable.png" alt="Immutable">
+					<br>
+
+					<pre class="fragment"><code class="hljs" data-trim >
+if ( previousStoreState !== storeState ) { ...
+					</pre></code>
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
